@@ -1,0 +1,17 @@
+.Gif{
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 32px;
+    width: 90vw;
+    background-color: #1f2336;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 12px 11px 0px 2px rgba(0, 0, 0, 0.493);
+    -webkit-box-shadow: 12px 11px 0px 2px rgba(0,0,0,0.493);
+    -moz-box-shadow: 12px 11px 0px 2px rgba(0,0,0,0.493);
+}
+.Gif img{
+    object-fit: contain;
+}
