@@ -12,7 +12,7 @@ export const Home = () => {
   const [keyword, setKeyword] = useState('')
   const pushLocation = useLocation()[1]
 
-  const { loading, gifs } = useGifs({ keyword: 'anime' })
+  const { loading, gifs } = useGifs()
 
   const handleSearch = (e) => {
     setKeyword(e.target.value)
@@ -43,6 +43,7 @@ export const Home = () => {
             })
         }
       </div>
+      <h4>Ultimas Busquedas</h4>
       {
         loading
           ? <Spinner />

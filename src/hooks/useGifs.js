@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import getGif from '../services/getGifs'
 
-export function useGifs ({ keyword }) {
+export function useGifs ({ keyword } = { keyword: null }) {
   const [gifs, setGifs] = useState([])
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    getGif({ keyword }).then(res => {
+    const keywordToUse = keyword || localStorage.getItem('lastKeyWord') || 'anime'
+    getGif({ keyword: keywordToUse }).then(res => {
       setGifs(res)
       setLoading(false)
+      localStorage.setItem('lastKeyWord', keyword)
     })
       .catch(err => {
         console.log(err)
