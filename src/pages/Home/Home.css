@@ -1,0 +1,39 @@
+.inputtext{
+    width: 100%;
+    justify-content: center;
+}
+.flex-tags{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+.tag-item{
+    flex: 1 1 20vw;
+}
+.p-tag{
+    width: 20vw;
+    height: 3vh;
+    font-size: calc(9px + 1vmin);
+    text-align: center;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    background-color: blueviolet;
+    box-shadow: 5px 8px 0px 2px rgba(0, 0, 0, 0.493);
+    -webkit-box-shadow: 5px 8px 0px 2px rgba(0,0,0,0.493);
+    -moz-box-shadow: 5px 8px 0px 2px rgba(0,0,0,0.493);
+    margin: 1em 1em 1em 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    cursor:pointer;
+    transition: all .2s ease-in-out;
+}
+.p-tag:hover{
+    background-color: rgb(214, 85, 253);
+}
+
+

@@ -6,19 +6,12 @@
 .App-content {
   background-color: #282A36;
   min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: column;
+  min-width: 99vw;
+  /* overflow-x: auto; */
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   padding: 16px;
-}
-
-a{
-  color: #09f;
-  font-size: 2rem;
 }
 
 
@@ -33,4 +26,4 @@ a{
         margin-bottom: .5rem;
     }
 }
-          
+ 
