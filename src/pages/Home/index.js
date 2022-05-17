@@ -1,28 +1,18 @@
 import { Link, useLocation } from 'wouter'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { InputText } from 'primereact/inputtext'
 import { Tag } from 'primereact/tag'
 import { Button } from 'primereact/button'
 import './Home.css'
-import getGif from '../../services/getGifs'
-import { Spinner } from '../../components/Spinner'
-import { ListOfGifs } from '../../components/ListOfGifs'
+import { Spinner } from '../../components/Spinner/Spinner'
+import { ListOfGifs } from '../../components/ListOfGifs/ListOfGifs'
+import { useGifs } from '../../hooks/useGifs'
 const POPULAR_GIFS = ['Nami', 'Boa Hancock', 'Nico Robin', 'Zoro']
 export const Home = () => {
   const [keyword, setKeyword] = useState('')
   const pushLocation = useLocation()[1]
-  const [gifs, setGifs] = useState([])
-  const [loading, setLoading] = useState(false)
-  useEffect(() => {
-    setLoading(true)
-    getGif({ keyword }).then(res => {
-      setGifs(res)
-      setLoading(false)
-    })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [keyword])
+
+  const { loading, gifs } = useGifs({ keyword: 'anime' })
 
   const handleSearch = (e) => {
     setKeyword(e.target.value)

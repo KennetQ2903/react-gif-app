@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import '../../components/Gif'
-import { Spinner } from '../../components/Spinner'
+import '../../components/Gif/Gif'
+import { Spinner } from '../../components/Spinner/Spinner'
 import getGifByID from '../../services/getGifByID'
 export const Detail = ({ params }) => {
   const { id } = params
