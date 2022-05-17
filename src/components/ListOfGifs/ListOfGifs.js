@@ -1,4 +1,4 @@
-import GIf from '../Gif/Gif'
+import GIf from 'components/Gif/Gif'
 import './listOfGifs.css'
 export const ListOfGifs = ({ gifs }) => {
   return (

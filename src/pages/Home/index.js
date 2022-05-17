@@ -1,13 +1,12 @@
-import { Link, useLocation } from 'wouter'
+import { useLocation } from 'wouter'
 import { useState } from 'react'
 import { InputText } from 'primereact/inputtext'
-import { Tag } from 'primereact/tag'
 import { Button } from 'primereact/button'
 import './Home.css'
-import { Spinner } from '../../components/Spinner/Spinner'
-import { ListOfGifs } from '../../components/ListOfGifs/ListOfGifs'
-import { useGifs } from '../../hooks/useGifs'
-const POPULAR_GIFS = ['Nami', 'Boa Hancock', 'Nico Robin', 'Zoro']
+import { Spinner } from 'components/Spinner/Spinner'
+import { ListOfGifs } from 'components/ListOfGifs/ListOfGifs'
+import { useGifs } from 'hooks/useGifs'
+import LazyTrending from 'components/TrendingTags/TrendingTags'
 export const Home = () => {
   const [keyword, setKeyword] = useState('')
   const pushLocation = useLocation()[1]
@@ -22,7 +21,8 @@ export const Home = () => {
     pushLocation(`/search/${keyword}`)
   }
   return (
-    <>
+    <div className='Home'>
+      <h1 className='App-title'>nmkzGIFS</h1>
       <form onSubmit={searchKeyword} className='inputtext'>
         <div className='col-12 md:col-4'>
           <div className='p-inputgroup'>
@@ -31,24 +31,21 @@ export const Home = () => {
           </div>
         </div>
       </form>
-      <h4 className='App-title'>Los gifs mas populares</h4>
-      <div className='flex-tags'>
-        {
-            POPULAR_GIFS.map(gif => {
-              return (
-                <Link className='tag-item' key={gif} to={`/search/${gif}`}>
-                  <Tag className='mr-2 p-tag' value={gif} rounded />
-                </Link>
-              )
-            })
-        }
+      <div className='grid grid-nogutter'>
+        <div className='col-12 sm:col-12 md:col-12 lg:col-10'>
+          <h5 style={{ textAlign: 'left', marginLeft: '1.5em' }}>Ultimas Busquedas</h5>
+          {
+            loading
+              ? <Spinner />
+              : <ListOfGifs gifs={gifs} />
+          }
+        </div>
+        <div className='col'>
+          {
+            loading ? null : <LazyTrending />
+          }
+        </div>
       </div>
-      <h4>Ultimas Busquedas</h4>
-      {
-        loading
-          ? <Spinner />
-          : <ListOfGifs gifs={gifs} />
-      }
-    </>
+    </div>
   )
 }

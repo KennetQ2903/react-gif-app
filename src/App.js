@@ -5,10 +5,11 @@ import { Route } from 'wouter'
 import 'primereact/resources/themes/vela-blue/theme.css'
 import 'primereact/resources/primereact.min.css' // core css
 import 'primeicons/primeicons.css'
-import { Home } from './pages/Home'
-import { Detail } from './pages/Detail'
-import StaticContext from './context/StaticContext'
-import { GifContextProvider } from './context/GifContext'
+import { Home } from 'pages/Home'
+import { Detail } from 'pages/Detail'
+import StaticContext from 'context/StaticContext'
+import { GifContextProvider } from 'context/GifContext'
+import 'primeflex/primeflex.css'
 
 function App () {
   return (
