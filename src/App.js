@@ -8,18 +8,21 @@ import 'primeicons/primeicons.css'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
 import StaticContext from './context/StaticContext'
+import { GifContextProvider } from './context/GifContext'
 
 function App () {
   return (
     <StaticContext.Provider value={{ user: 'Namikaze', rol: 'Admin', auth: true }}>
       <div className='App'>
         <section className='App-content'>
-          <Route component={Home} />
-          <Route
-            component={SearchResult}
-            path='/search/:keyword'
-          />
-          <Route component={Detail} path='/gif/:id' />
+          <GifContextProvider>
+            <Route component={Home} />
+            <Route
+              component={SearchResult}
+              path='/search/:keyword'
+            />
+            <Route component={Detail} path='/gif/:id' />
+          </GifContextProvider>
         </section>
       </div>
     </StaticContext.Provider>
