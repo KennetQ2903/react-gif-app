@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from 'react'
 import getGif from 'services/getGifs'
 import GifContext from 'context/GifContext'
 const INITIAL_PAGE = 0
-export function useGifs ({ keyword } = { keyword: null }) {
+export function useGifs ({ keyword } = { keyword: '' }) {
   // const [ gifs, setGifs ] = useState( [] )
   const { gifs, setGifs } = useContext(GifContext)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
   const [page, setPage] = useState(INITIAL_PAGE)
   const [loading, setLoading] = useState(false)
   const keywordToUse = keyword || localStorage.getItem('lastKeyWord') || 'anime'
+
   useEffect(() => {
     setLoading(true)
     getGif({ keyword: keywordToUse }).then(res => {

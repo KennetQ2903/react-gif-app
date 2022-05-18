@@ -2,6 +2,7 @@ import { Tag } from 'primereact/tag'
 import { useEffect, useState } from 'react'
 import { Link } from 'wouter'
 import getTrendingTags from 'services/getTrendingService'
+import './TrendingTags.css'
 const TrendingTags = () => {
   const [tags, setTags] = useState([])
   useEffect(() => {
@@ -11,12 +12,12 @@ const TrendingTags = () => {
   }, [])
   return (
     <div>
-      <h5 className='flex-tags'>Categorias Populares</h5>
-      <div className='flex-tags'>
+      <h5>Categorias Populares</h5>
+      <div>
         {
         tags.map(gif => {
           return (
-            <Link className='tag-item' key={gif} to={`/search/${gif}`}>
+            <Link key={gif} to={`/search/${gif}`}>
               <Tag className='mr-2 p-tag' value={gif} rounded />
             </Link>
           )

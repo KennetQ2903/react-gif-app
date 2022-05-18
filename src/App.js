@@ -10,6 +10,7 @@ import { Detail } from 'pages/Detail'
 import StaticContext from 'context/StaticContext'
 import { GifContextProvider } from 'context/GifContext'
 import 'primeflex/primeflex.css'
+import HeaderApp from 'components/Header/HeaderApp'
 
 function App () {
   return (
@@ -17,6 +18,7 @@ function App () {
       <div className='App'>
         <section className='App-content'>
           <GifContextProvider>
+            <HeaderApp />
             <Route component={Home} />
             <Route
               component={SearchResult}
