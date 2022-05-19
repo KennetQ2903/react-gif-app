@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import { SearchResult } from './pages/SearchResult'
-import { Route } from 'wouter'
+import { Link, Route } from 'wouter'
 import 'primereact/resources/themes/vela-blue/theme.css'
 import 'primereact/resources/primereact.min.css' // core css
 import 'primeicons/primeicons.css'
@@ -10,7 +10,6 @@ import { Detail } from 'pages/Detail'
 import StaticContext from 'context/StaticContext'
 import { GifContextProvider } from 'context/GifContext'
 import 'primeflex/primeflex.css'
-import HeaderApp from 'components/Header/HeaderApp'
 
 function App () {
   return (
@@ -18,7 +17,7 @@ function App () {
       <div className='App'>
         <section className='App-content'>
           <GifContextProvider>
-            <HeaderApp />
+            <Link to='/'><h1 className='App-title'>nmkzGIFS</h1></Link>
             <Route component={Home} />
             <Route
               component={SearchResult}

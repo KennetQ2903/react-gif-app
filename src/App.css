@@ -15,4 +15,12 @@
   padding: 16px;
 }
 
+.App-title{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    cursor:pointer;
+}
+
  

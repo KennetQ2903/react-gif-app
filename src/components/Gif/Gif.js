@@ -1,3 +1,4 @@
+import React from 'react'
 import './Gif.css'
 import { Link } from 'wouter'
 const GIf = ({ id, title, url } = {}) => {
@@ -9,4 +10,4 @@ const GIf = ({ id, title, url } = {}) => {
   )
 }
 
-export default GIf
+export default React.memo(GIf)

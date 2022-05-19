@@ -1,22 +1,20 @@
+import React, { useState } from 'react'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
-import { useState } from 'react'
-import { Link, useLocation } from 'wouter'
+
 import './HeaderApp.css'
-export default function HeaderApp () {
+function HeaderApp ({ onSubmit }) {
   const [keyword, setKeyword] = useState('')
-  const pushLocation = useLocation()[1]
 
   const handleSearch = (e) => {
     setKeyword(e.target.value)
   }
   const searchKeyword = (e) => {
     e.preventDefault()
-    pushLocation(`/search/${keyword}`)
+    onSubmit({ keyword })
   }
   return (
     <>
-      <Link to='/'><h1 className='App-title'>nmkzGIFS</h1></Link>
       <form onSubmit={searchKeyword} className='inputtext'>
         <div className='col-12 md:col-4'>
           <div className='p-inputgroup'>
@@ -28,3 +26,5 @@ export default function HeaderApp () {
     </>
   )
 }
+
+export default React.memo(HeaderApp)
