@@ -12,7 +12,7 @@ const TrendingTags = () => {
   }, [])
   return (
     <div>
-      <h5>Categorias Populares</h5>
+      <h5>Busquedas Populares</h5>
       <div>
         {
         tags.map(gif => {

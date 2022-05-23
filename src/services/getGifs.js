@@ -7,7 +7,7 @@ export default function getGif ({ keyword = 'nami', page = 0, limit = 10 } = {})
       const { data = [] } = res
       const gifs = data.map(image => {
         const { title, id, images } = image
-        const { url } = images.downsized_medium
+        const { url } = images.fixed_height_small
         return { title, id, url }
       })
       return gifs
