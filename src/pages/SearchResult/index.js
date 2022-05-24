@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import debounce from 'just-debounce-it'
 import { ScrollTop } from 'primereact/scrolltop'
 import './searchResult.css'
+import { Helmet } from 'react-helmet'
 export const SearchResult = ({ params }) => {
   const { keyword } = params
   const { loading, gifs, setPage } = useGifs({ keyword })
@@ -18,11 +19,23 @@ export const SearchResult = ({ params }) => {
     // console.log(show)
     if (show) debounceNextPage()
   }, [show, debounceNextPage])
-
-  if (loading) return <Spinner />
+  if (loading) {
+    return (
+      <>
+        <Helmet>
+          <title>Cargando...</title>
+        </Helmet>
+        <Spinner />
+      </>
+    )
+  }
 
   return (
     <div>
+      <Helmet>
+        <title>{`${gifs.length} resultados de ${decodeURI(keyword)}`}</title>
+        <meta name='description' content={`search of ${decodeURI(keyword)}`} />
+      </Helmet>
       <h4>Busqueda "{decodeURI(keyword)}"</h4>
       <ListOfGifs gifs={gifs} />
       <ScrollTop threshold={500} behavior='smooth' className='custom-scrolltop' icon='pi pi-arrow-up' />

@@ -6,16 +6,20 @@ import './Home.css'
 import HeaderApp from 'components/Header/HeaderApp'
 import { useLocation } from 'wouter'
 import { useCallback } from 'react'
+import { Helmet } from 'react-helmet'
 export const Home = () => {
   const { loading, gifs } = useGifs({ limit: 25 })
-  const pushLocation = useLocation()[1]
+  const pushLocation = useLocation()[1] // [0] returs actual location
 
   const handleSubmit = useCallback(({ keyword }) => {
     pushLocation(`/search/${keyword}`)
   }, [pushLocation])
 
   return (
-    <>
+    <div>
+      <Helmet>
+        <title>Home | nmkzGIF</title>
+      </Helmet>
       <HeaderApp onSubmit={handleSubmit} />
       <div className='grid grid-nogutter'>
         <div className='col-12 sm:col-12 md:col-12 lg:col-10' style={{ minHeight: '100vh' }}>
@@ -30,6 +34,6 @@ export const Home = () => {
           <LazyTrending />
         </div>
       </div>
-    </>
+    </div>
   )
 }

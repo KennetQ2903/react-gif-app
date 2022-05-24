@@ -24,6 +24,7 @@ function App () {
               path='/search/:keyword'
             />
             <Route component={Detail} path='/gif/:id' />
+            <Route component={() => <h1>Parece que este GIF no existe</h1>} path='/404' />
           </GifContextProvider>
         </section>
       </div>

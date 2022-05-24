@@ -3,7 +3,6 @@ import getGif from 'services/getGifs'
 import GifContext from 'context/GifContext'
 const INITIAL_PAGE = 0
 export function useGifs ({ keyword, limit } = { keyword: 'anime', limit: 5 }) {
-  // const [ gifs, setGifs ] = useState( [] )
   const { gifs, setGifs } = useContext(GifContext)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
   const [page, setPage] = useState(INITIAL_PAGE)
@@ -20,7 +19,7 @@ export function useGifs ({ keyword, limit } = { keyword: 'anime', limit: 5 }) {
       .catch(err => {
         console.log(err)
       })
-  }, [setGifs])
+  }, [setGifs, keyword, keywordToUse, limit])
 
   useEffect(() => {
     if (page === INITIAL_PAGE) return
