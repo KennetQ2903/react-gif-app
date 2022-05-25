@@ -7,9 +7,10 @@ import debounce from 'just-debounce-it'
 import { ScrollTop } from 'primereact/scrolltop'
 import './searchResult.css'
 import { Helmet } from 'react-helmet'
+import HeaderApp from 'components/Header/HeaderApp'
 export const SearchResult = ({ params }) => {
-  const { keyword } = params
-  const { loading, gifs, setPage } = useGifs({ keyword })
+  const { keyword, rating = 'g' } = params
+  const { loading, gifs, setPage } = useGifs({ keyword, rating })
   const externalRef = useRef()
   const { show } = useNearScreen({ externalRef: loading ? null : externalRef, once: false })
 
@@ -37,6 +38,7 @@ export const SearchResult = ({ params }) => {
         <meta name='description' content={`search of ${decodeURI(keyword)}`} />
       </Helmet>
       <h4>Busqueda "{decodeURI(keyword)}"</h4>
+      <HeaderApp initialKeyword={decodeURI(keyword)} initialRating={decodeURI(rating)} />
       <ListOfGifs gifs={gifs} />
       <ScrollTop threshold={500} behavior='smooth' className='custom-scrolltop' icon='pi pi-arrow-up' />
       <div id='visor' ref={externalRef} />

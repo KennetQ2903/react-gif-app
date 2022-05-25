@@ -21,7 +21,7 @@ function App () {
             <Route component={Home} />
             <Route
               component={SearchResult}
-              path='/search/:keyword'
+              path='/search/:keyword/:rating?'
             />
             <Route component={Detail} path='/gif/:id' />
             <Route component={() => <h1>Parece que este GIF no existe</h1>} path='/404' />
