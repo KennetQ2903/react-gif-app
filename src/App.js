@@ -1,34 +1,46 @@
 import React from 'react'
-import './App.css'
 import { SearchResult } from './pages/SearchResult'
-import { Link, Route } from 'wouter'
+import { Link, Route, Switch } from 'wouter'
+import { UserContextProvider } from 'context/UserContext'
+import { GifContextProvider } from 'context/GifContext'
+
+import { Home } from 'pages/Home'
+import { Detail } from 'pages/Detail'
+import { Bar } from 'components/Bar/Bar'
+import { Login } from 'pages/Login'
+import { NotFound } from 'pages/404'
+
 import 'primereact/resources/themes/vela-blue/theme.css'
 import 'primereact/resources/primereact.min.css' // core css
 import 'primeicons/primeicons.css'
-import { Home } from 'pages/Home'
-import { Detail } from 'pages/Detail'
-import StaticContext from 'context/StaticContext'
-import { GifContextProvider } from 'context/GifContext'
 import 'primeflex/primeflex.css'
+import './App.css'
 
 function App () {
   return (
-    <StaticContext.Provider value={{ user: 'Namikaze', rol: 'Admin', auth: true }}>
+    <UserContextProvider>
       <div className='App'>
+        <Bar />
         <section className='App-content'>
+          <Link className='m-2 App-logo' to='/'>
+            <span className='App-title'>nmkz</span>
+            <img alt='nmkzGIF' src='gif.png' />
+          </Link>
           <GifContextProvider>
-            <Link to='/'><h1 className='App-title'>nmkzGIFS</h1></Link>
-            <Route component={Home} />
-            <Route
-              component={SearchResult}
-              path='/search/:keyword/:rating?'
-            />
-            <Route component={Detail} path='/gif/:id' />
-            <Route component={() => <h1>Parece que este GIF no existe</h1>} path='/404' />
+            <Switch>
+              <Route component={Home} path='/' />
+              <Route
+                component={SearchResult}
+                path='/search/:keyword/:rating?'
+              />
+              <Route component={Detail} path='/gif/:id' />
+              <Route component={Login} path='/login' />
+              <Route component={NotFound} path='/:rest*' />
+            </Switch>
           </GifContextProvider>
         </section>
       </div>
-    </StaticContext.Provider>
+    </UserContextProvider>
   )
 }
 

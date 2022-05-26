@@ -7,6 +7,7 @@
     color: #fff;
     height: fit-content;
     text-decoration: none;
+    text-align: center;
 }
 .Gif img{
    width: 100%;
@@ -14,4 +15,11 @@
 }
 .Gif h4{
      font-size: calc(9px + 1vmin);
+}
+.gif-options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
 }

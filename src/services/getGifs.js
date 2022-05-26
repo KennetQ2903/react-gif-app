@@ -7,7 +7,7 @@ export default function getGif ({ keyword = 'anime', page = 0, limit = 10, ratin
       const { data = [] } = res
       const gifs = data.map(image => {
         const { title, id, images } = image
-        const { url } = images.fixed_height_small
+        const { url } = images.original
         return { title, id, url }
       })
       return gifs

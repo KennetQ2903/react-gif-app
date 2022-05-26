@@ -5,7 +5,6 @@ import { Redirect } from 'wouter'
 import { Helmet } from 'react-helmet'
 export const Detail = ({ params }) => {
   const { id } = params
-
   const { gif, error, loading } = useSingleGif({ id })
   if (loading) {
     return (

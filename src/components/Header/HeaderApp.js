@@ -10,7 +10,6 @@ const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
 function HeaderApp ({ initialKeyword = '', initialRating = 'g' }) {
   const { keyword, rating, updateKeyword, updateRating } = useForm({ initialKeyword, initialRating })
-
   const pushLocation = useLocation()[1] // [0] returs actual location
 
   const handleSubmit = useCallback(({ keyword }) => {
@@ -33,7 +32,7 @@ function HeaderApp ({ initialKeyword = '', initialRating = 'g' }) {
       <form onSubmit={searchKeyword} className='grid grid-nogutter inputtext'>
         <div className='col-12 md:col-4 m-2'>
           <div className='p-inputgroup'>
-            <InputText value={initialKeyword} onChange={handleSearch} placeholder='Buscar GIFS' />
+            <InputText value={keyword} onChange={handleSearch} placeholder='Buscar GIFS' />
             <Button icon='pi pi-search' className='p-button-primary' />
           </div>
         </div>
