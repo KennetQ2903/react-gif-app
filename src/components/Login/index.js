@@ -66,29 +66,30 @@ export const Login = ({ onLogin }) => {
     <div className='form-demo'>
       <ToastMessage visibilityMsg={showMessage} severity='info' summary='Inicio de Sesion' detail='Iniciando Sesion...' />
       <ToastMessage visibilityMsg={isError} severity='error' summary='Error' detail={ErrorMSG} />
-
       <div className='flex justify-content-center'>
-        <form onSubmit={formik.handleSubmit} className='p-fluid'>
-          <div className='field'>
-            <span className='p-float-label'>
-              <InputText id='username' name='username' value={formik.values.username} onChange={formik.handleChange} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
-              <label htmlFor='username' className={classNames({ 'p-error': isFormFieldValid('username') })}>Username*</label>
-            </span>
-            {getFormErrorMessage('name')}
-          </div>
-          <div className='field mt-5'>
-            <span className='p-float-label'>
-              <Password
-                id='password' name='password' value={formik.values.password} onChange={formik.handleChange} toggleMask
-                className={classNames({ 'p-invalid': isFormFieldValid('password') })}
-              />
-              <label htmlFor='password' className={classNames({ 'p-error': isFormFieldValid('password') })}>Password*</label>
-            </span>
-            {getFormErrorMessage('password')}
-          </div>
+        <div>
+          <form onSubmit={formik.handleSubmit} className='p-fluid'>
+            <div className='field'>
+              <span className='p-float-label'>
+                <InputText id='username' name='username' value={formik.values.username} onChange={formik.handleChange} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
+                <label htmlFor='username' className={classNames({ 'p-error': isFormFieldValid('username') })}>Username*</label>
+              </span>
+              {getFormErrorMessage('name')}
+            </div>
+            <div className='field mt-5'>
+              <span className='p-float-label'>
+                <Password
+                  id='password' name='password' value={formik.values.password} onChange={formik.handleChange} toggleMask
+                  className={classNames({ 'p-invalid': isFormFieldValid('password') })}
+                />
+                <label htmlFor='password' className={classNames({ 'p-error': isFormFieldValid('password') })}>Password*</label>
+              </span>
+              {getFormErrorMessage('password')}
+            </div>
 
-          <Button type='submit' label='Iniciar Sesion' className='mt-2' />
-        </form>
+            <Button type='submit' label='Iniciar Sesion' className='mt-2' />
+          </form>
+        </div>
       </div>
     </div>
   )

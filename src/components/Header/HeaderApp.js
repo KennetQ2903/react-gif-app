@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
-import { Button } from 'primereact/button'
+// import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import './HeaderApp.css'
 import { useLocation } from 'wouter'
 import { Dropdown } from 'primereact/dropdown'
 import { useForm } from 'hooks/useForm'
+import Button from 'components/Button'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -33,7 +34,7 @@ function HeaderApp ({ initialKeyword = '', initialRating = 'g' }) {
         <div className='col-12 md:col-4 m-2'>
           <div className='p-inputgroup'>
             <InputText value={keyword} onChange={handleSearch} placeholder='Buscar GIFS' />
-            <Button icon='pi pi-search' className='p-button-primary' />
+            <Button><i className='pi pi-search' /></Button>
           </div>
         </div>
         <Dropdown className='col-12 md:col-4 m-2' value={rating} options={RATINGS} onChange={handleSelectOption} optionLabel='' placeholder='Select a Rating' />
