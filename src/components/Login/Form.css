@@ -1,9 +1,14 @@
 
+.form-demo{
+    margin-top: 3rem;
+
+}
 .form-demo .card {
-    min-width: 450px;
+    min-width: 320px;
 }
 .form-demo .card form {
     margin-top: 1rem;
+
 }
 .form-demo .card .field {
     margin-bottom: 1.2rem;

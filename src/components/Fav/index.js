@@ -2,11 +2,14 @@ import { useCallback, useEffect, useState } from 'react'
 import { ToastMessage } from 'components/Toasts'
 import { Button } from 'primereact/button'
 import { useUser } from 'hooks/useUser'
+import ModalPortal from 'components/Modal'
+import { Login } from 'components/Login'
 
 const HEARTS = ['pi pi-heart', 'pi pi-heart-fill']
 export const Fav = ({ id }) => {
   const [heart, setHeart] = useState(HEARTS[0])
   const [requestLogin, setRequestLogin] = useState(false)
+  const [showModal, setModal] = useState(false)
   const { isLoggedIn, addFav, favs } = useUser()
   // const isFav = () => favs.some(favId => favId === id)
   const fav = () => {
@@ -19,10 +22,19 @@ export const Fav = ({ id }) => {
 
   const loginRequest = useCallback(() => {
     setRequestLogin(true)
+    setModal(true)
     setTimeout(() => {
       setRequestLogin(false)
     }, 3000)
   }, [])
+
+  const handleCloseModal = () => {
+    setModal(false)
+  }
+
+  const handelLogin = () => {
+    setModal(false)
+  }
 
   return (
     <>
@@ -33,6 +45,13 @@ export const Fav = ({ id }) => {
       }
       </div>
       <ToastMessage visibilityMsg={requestLogin} severity='info' summary='Guardar Favorito' detail='Debe iniciar sesion para guardar este GIF en Favoritos' />
+      {
+        showModal &&
+          <ModalPortal onClose={handleCloseModal}>
+            <h3>iniciar Sesion</h3>
+            <Login onLogin={handelLogin} />
+          </ModalPortal>
+      }
     </>
   )
 }

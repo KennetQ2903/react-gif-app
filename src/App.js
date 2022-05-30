@@ -7,7 +7,7 @@ import { GifContextProvider } from 'context/GifContext'
 import { Home } from 'pages/Home'
 import { Detail } from 'pages/Detail'
 import { Bar } from 'components/Bar/Bar'
-import { Login } from 'pages/Login'
+import { LoginPage } from 'pages/Login'
 import { NotFound } from 'pages/404'
 
 import 'primereact/resources/themes/vela-blue/theme.css'
@@ -15,6 +15,7 @@ import 'primereact/resources/primereact.min.css' // core css
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 import './App.css'
+import { RegisterPage } from 'pages/Register'
 
 function App () {
   return (
@@ -34,7 +35,8 @@ function App () {
                 path='/search/:keyword/:rating?'
               />
               <Route component={Detail} path='/gif/:id' />
-              <Route component={Login} path='/login' />
+              <Route component={LoginPage} path='/login' />
+              <Route component={RegisterPage} path='/register' />
               <Route component={NotFound} path='/:rest*' />
             </Switch>
           </GifContextProvider>

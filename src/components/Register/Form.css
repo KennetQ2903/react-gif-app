@@ -1,0 +1,28 @@
+
+.form-demo{
+    margin-top: 1rem;
+}
+
+.form-demo form {
+    margin-top: 1rem;
+    min-width: 310px;
+    width: calc(40% + 1vmin);
+
+}
+.form-demo .field {
+    margin-bottom: 1.2rem;
+}
+.field span label {
+    font-size: calc(6px + 1vmin);
+}
+@media screen and (max-width: 960px) {
+    .form-demo {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 640px) {
+    .form-demo {
+        width: 100%;
+        min-width: 0;
+    }
+}
